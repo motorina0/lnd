@@ -1223,7 +1223,7 @@ func compactLogs(ourLog, theirLog *updateLog,
 //
 // The state machine has for main methods:
 //  * .SignNextCommitment()
-//    * Called one one wishes to sign the next commitment, either initiating a
+//    * Called when one wishes to sign the next commitment, either initiating a
 //      new state update, or responding to a received commitment.
 //  * .ReceiveNewCommitment()
 //    * Called upon receipt of a new commitment from the remote party. If the
