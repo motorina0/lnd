@@ -95,12 +95,12 @@ var (
 	}
 )
 
-// CreateTestChannels creates to fully populated channels to be used within
+// CreateTestChannels creates two fully populated channels to be used within
 // testing fixtures. The channels will be returned as if the funding process
 // has just completed.  The channel itself is funded with 10 BTC, with 5 BTC
 // allocated to each side. Within the channel, Alice is the initiator. The
 // function also returns a "cleanup" function that is meant to be called once
-// the test has been finalized. The clean up function will remote all temporary
+// the test has been finalized. The clean up function will remove all temporary
 // files created. If tweaklessCommits is true, then the commits within the
 // channels will use the new format, otherwise the legacy format.
 func CreateTestChannels(chanType channeldb.ChannelType) (
