@@ -1218,7 +1218,7 @@ func compactLogs(ourLog, theirLog *updateLog,
 // In order to allow updates to be fully non-blocking, either side is able to
 // create multiple new commitment states up to a pre-determined window size.
 // This window size is encoded within InitialRevocationWindow. Before the start
-// of a session, both side should send out revocation messages with nil
+// of a session, both sides should send out revocation messages with nil
 // preimages in order to populate their revocation window for the remote party.
 //
 // The state machine has for main methods:
