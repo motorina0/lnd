@@ -1254,7 +1254,7 @@ type LightningChannel struct {
 
 	// sigPool is a pool of workers that are capable of signing and
 	// validating signatures in parallel. This is utilized as an
-	// optimization to void serially signing or validating the HTLC
+	// optimization to avoid serially signing or validating the HTLC
 	// signatures, of which there may be hundreds.
 	sigPool *SigPool
 
