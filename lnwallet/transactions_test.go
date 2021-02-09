@@ -164,11 +164,11 @@ func TestCommitmentAndHTLCTransactions(t *testing.T) {
 		jsonFile string
 		chanType channeldb.ChannelType
 	}{
-		{
-			name:     "legacy",
-			chanType: channeldb.SingleFunderBit,
-			jsonFile: "test_vectors_legacy.json",
-		},
+		// {
+		// 	name:     "legacy",
+		// 	chanType: channeldb.SingleFunderBit,
+		// 	jsonFile: "test_vectors_legacy.json",
+		// },
 		{
 			name:     "anchors",
 			chanType: channeldb.SingleFunderTweaklessBit | channeldb.AnchorOutputsBit,
@@ -285,7 +285,7 @@ func testVectors(t *testing.T, chanType channeldb.ChannelType, test testCase) {
 		hash160map = addTestHtlcs(t, remoteChannel, localChannel)
 	}
 
-	// Execute commit dance to arrive at the point where the local node has
+	// Execute commit dance to arrive at the point where the local node  has
 	// received the test commitment and the remote signature.
 	localSig, localHtlcSigs, _, err := localChannel.SignNextCommitment()
 	require.NoError(t, err, "local unable to sign commitment")

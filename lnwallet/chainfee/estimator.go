@@ -160,7 +160,7 @@ func NewBtcdEstimator(rpcConfig rpcclient.ConnConfig,
 //
 // NOTE: This method is part of the Estimator interface.
 func (b *BtcdEstimator) Start() error {
-	if err := b.btcdConn.Connect(20); err != nil {
+	if err := b.btcdConn.Connect(2); err != nil {
 		return err
 	}
 

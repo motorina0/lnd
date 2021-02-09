@@ -43,13 +43,13 @@ COPY "start-btcd.sh" .
 RUN apk add --no-cache \
     bash \
     ca-certificates \
-&&  mkdir "/rpc" "/root/.btcd" "/root/.btcctl" \
-&&  touch "/root/.btcd/btcd.conf" \
-&&  chmod +x start-btcctl.sh \
-&&  chmod +x start-btcd.sh \
-# Manually generate certificate and add all domains, it is needed to connect
-# "btcctl" and "lnd" to "btcd" over docker links.
-&& "/bin/gencerts" --host="*" --directory="/rpc" --force
+    &&  mkdir "/rpc" "/root/.btcd" "/root/.btcctl" \
+    &&  touch "/root/.btcd/btcd.conf" \
+    &&  chmod +x start-btcctl.sh \
+    &&  chmod +x start-btcd.sh \
+    # Manually generate certificate and add all domains, it is needed to connect
+    # "btcctl" and "lnd" to "btcd" over docker links.
+    && "/bin/gencerts" --host="*, host.docker.internal" --directory="/rpc" --force
 
 # Create a volume to house pregenerated RPC credentials. This will be
 # shared with any lnd, btcctl containers so they can securely query btcd's RPC

@@ -31,7 +31,7 @@ var (
 		0x93, 0xaf, 0x71, 0xdb, 0x18, 0x6d, 0x6e, 0x90,
 	}
 
-	// We're alice :)
+	// We're alice :)x
 	bobsPrivKey = []byte{
 		0x81, 0xb6, 0x37, 0xd8, 0xfc, 0xd2, 0xc6, 0xda,
 		0x63, 0x59, 0xe6, 0x96, 0x31, 0x13, 0xa1, 0x17,
@@ -102,7 +102,7 @@ var (
 // function also returns a "cleanup" function that is meant to be called once
 // the test has been finalized. The clean up function will remote all temporary
 // files created. If tweaklessCommits is true, then the commits within the
-// channels will use the new format, otherwise the legacy format.
+// channels will use the new format, otherwise the legacy format. Check!
 func CreateTestChannels(chanType channeldb.ChannelType) (
 	*LightningChannel, *LightningChannel, func(), error) {
 
