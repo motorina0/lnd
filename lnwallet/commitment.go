@@ -618,6 +618,8 @@ func CreateCommitTx(chanType channeldb.ChannelType,
 	amountToLocal, amountToRemote btcutil.Amount,
 	numHTLCs int64) (*wire.MsgTx, error) {
 
+	fmt.Println("////////////////////////////////// CreateCommitTx //////////////////////////////////")
+
 	// First, we create the script for the delayed "pay-to-self" output.
 	// This output has 2 main redemption clauses: either we can redeem the
 	// output after a relative block delay, or the remote node can claim

@@ -1164,6 +1164,7 @@ func CreateCommitmentTxns(localBalance, remoteBalance btcutil.Amount,
 	fundingTxIn wire.TxIn, chanType channeldb.ChannelType) (
 	*wire.MsgTx, *wire.MsgTx, error) {
 
+	fmt.Println("******************************************* CreateCommitmentTxns *******************************************")
 	localCommitmentKeys := DeriveCommitmentKeys(
 		localCommitPoint, true, chanType, ourChanCfg, theirChanCfg,
 	)
