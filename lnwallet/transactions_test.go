@@ -274,7 +274,7 @@ func testVectors(t *testing.T, chanType channeldb.ChannelType, test testCase) {
 		chanType, test.FeePerKw,
 		remoteBalance.ToSatoshis(),
 		localBalance.ToSatoshis(),
-	)
+	) // create tx here
 	defer cleanUp()
 
 	// Add htlcs (if any) to the update logs of both sides and save a hash
@@ -887,7 +887,8 @@ func createTestChannelsForVectors(tc *testContext, chanType channeldb.ChannelTyp
 		remoteBalance, localBalance-commitFee,
 		&remoteCfg, &localCfg, remoteCommitPoint,
 		localCommitPoint, *fundingTxIn, chanType,
-	)
+	) // return ourCommitTx, theirCommitTx, nil
+	// params also reversed
 	require.NoError(t, err)
 
 	// Set up the full channel state.

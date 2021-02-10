@@ -618,7 +618,7 @@ func CreateCommitTx(chanType channeldb.ChannelType,
 	amountToLocal, amountToRemote btcutil.Amount,
 	numHTLCs int64) (*wire.MsgTx, error) {
 
-	fmt.Println("////////////////////////////////// CreateCommitTx //////////////////////////////////")
+	fmt.Println("////////////////////////////////// CreateCommitTx //////////////////////////////////\n{")
 
 	// First, we create the script for the delayed "pay-to-self" output.
 	// This output has 2 main redemption clauses: either we can redeem the
@@ -632,11 +632,11 @@ func CreateCommitTx(chanType channeldb.ChannelType,
 	if err != nil {
 		return nil, err
 	}
-	fmt.Printf("toLocalRedeemScript: %x\n", toLocalRedeemScript)
+	fmt.Printf("\"toLocalRedeemScript\": \"%x\",\n", toLocalRedeemScript)
 	toLocalScriptHash, err := input.WitnessScriptHash(
 		toLocalRedeemScript,
 	)
-	fmt.Printf("toLocalScriptHash: %x\n", toLocalScriptHash)
+	fmt.Printf("\"toLocalScriptHash\": \"%x\",\n", toLocalScriptHash)
 	if err != nil {
 		return nil, err
 	}
@@ -645,7 +645,7 @@ func CreateCommitTx(chanType channeldb.ChannelType,
 	toRemoteScript, _, err := CommitScriptToRemote(
 		chanType, keyRing.ToRemoteKey,
 	)
-	fmt.Printf("toRemoteScript: %x\n", toRemoteScript)
+	fmt.Printf("\"toRemoteScript\": { \"PkScript\": \"%x\", \"WitnessScript\": \"%x\"},\n", toRemoteScript.PkScript, toRemoteScript.WitnessScript)
 	if err != nil {
 		return nil, err
 	}
@@ -702,7 +702,7 @@ func CreateCommitTx(chanType channeldb.ChannelType,
 	}
 	buf := new(bytes.Buffer)
 	commitTx.Serialize(buf)
-	fmt.Printf("commitTx: %x\n", buf)
+	fmt.Printf("\"commitTx\": \"%x\"\n}", buf)
 	return commitTx, nil
 }
 
