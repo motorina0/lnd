@@ -1,0 +1,18 @@
++--------------------------------+   +---------------------------------+
+|                                |   |                                 |
+|  tx_alice_01                   |   |  tx_bob_01                      |
+|   - outputs                    |   |    - outputs                    |
+|     - [0] to_local(Alice)      |   |      - [0] to_local (Bob)       |
+|       - amount: 0.9            |   |        - amount: 0.1            |
+|       - allow revocation       |   |        - allow revocation       |
+|       - pay Alice with delay   |   |        - pay Bob with delay     |
+|      - [1] to_remote (Bob)     |   |      - [1] to_remote (Alice)    |
+|        - amount 0.1            |   |        - amount: 0.9            |
+|        - pay Bob immediately   |   |        - pay Alice immediately  |
+|                                |   |                                 |
+|                                |   |                                 |
++--------------------------------+   +---------------------------------+
+
+
+
+

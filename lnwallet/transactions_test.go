@@ -70,6 +70,7 @@ func newTestContext(t *testing.T) (tc *testContext) {
 		return k
 	}
 
+	// basepoints
 	tc.remoteFundingPrivkey = priv("1552dfba4f6cf29a62a0af13c8d6981d36d0ef8d61ba10fb0fe90da7634d7e13")
 	tc.remoteRevocationBasepointSecret = priv("2222222222222222222222222222222222222222222222222222222222222222")
 	tc.remotePaymentBasepointSecret = priv("4444444444444444444444444444444444444444444444444444444444444444")
