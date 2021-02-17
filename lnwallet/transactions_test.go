@@ -290,6 +290,7 @@ func testVectors(t *testing.T, chanType channeldb.ChannelType, test testCase) {
 	// received the test commitment and the remote signature.
 	localSig, localHtlcSigs, _, err := localChannel.SignNextCommitment() // create tx here
 	require.NoError(t, err, "local unable to sign commitment")
+	fmt.Printf("localSig: %x", localSig)
 
 	err = remoteChannel.ReceiveNewCommitment(localSig, localHtlcSigs) // create tx here
 	require.NoError(t, err)
@@ -302,6 +303,7 @@ func testVectors(t *testing.T, chanType channeldb.ChannelType, test testCase) {
 
 	remoteSig, remoteHtlcSigs, _, err := remoteChannel.SignNextCommitment() // create tx here
 	require.NoError(t, err)
+	fmt.Printf("remoteSig: %x", remoteSig)
 
 	require.Equal(t, test.RemoteSigHex, hex.EncodeToString(remoteSig.ToSignatureBytes()))
 
